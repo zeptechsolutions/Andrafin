@@ -1,1 +1,0 @@
-const r=require('express').Router();const c=require('../controllers/budgetController');const {protect}=require('../middleware/authMiddleware');r.use(protect);r.route('/').get(c.list).post(c.upsert);r.delete('/:id',c.remove);module.exports=r;

@@ -1,7 +1,7 @@
 import {NavLink,useLocation,Link} from 'react-router-dom';
 import {
   LayoutDashboard,ArrowLeftRight,WalletCards,HandCoins,Landmark,
-  Target,Bell,UserRound,LogOut,Plus,Menu,Tags
+  Target,Bell,UserRound,LogOut,Plus,Menu,Tags,WalletMinimal
 } from 'lucide-react';
 import {useAuth} from '../context/AuthContext';
 
@@ -12,6 +12,7 @@ const nav=[
   ['/categorias','Categorías',Tags],
   ['/deudas','Deudas',Landmark],
   ['/prestamos','Préstamos',HandCoins],
+  ['/por-cobrar','Por cobrar',WalletMinimal],
   ['/planificacion','Planificación',Target],
   ['/notificaciones','Avisos',Bell],
   ['/perfil','Perfil',UserRound],

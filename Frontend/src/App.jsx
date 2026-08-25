@@ -11,6 +11,7 @@ import Transactions from './pages/Transactions';
 import Accounts from './pages/Accounts';
 import Debts from './pages/Debts';
 import Loans from './pages/Loans';
+import Receivables from './pages/Receivables';
 import Planning from './pages/Planning';
 import Notifications from './pages/Notifications';
 import Profile from './pages/Profile';
@@ -35,6 +36,7 @@ function PrivateApp(){
         <Route path="/categorias" element={<Categories/>}/>
         <Route path="/deudas" element={<Debts bump={bump}/>}/>
         <Route path="/prestamos" element={<Loans bump={bump}/>}/>
+        <Route path="/por-cobrar" element={<Receivables bump={bump}/>}/>
         <Route path="/planificacion" element={<Planning/>}/>
         <Route path="/notificaciones" element={<Notifications/>}/>
         <Route path="/perfil" element={<Profile/>}/>

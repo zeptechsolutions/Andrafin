@@ -57,3 +57,71 @@ body{overflow-x:hidden}
 @media(max-width:430px){
   .auth-logo{width:86px;max-width:86px}
 }
+
+.receivable-summary{
+  background:linear-gradient(135deg,#0f2e24,#173f32);
+  color:#fff;
+  border-radius:24px;
+  padding:24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  margin-bottom:18px;
+  box-shadow:var(--shadow);
+}
+.receivable-summary h2{font-size:clamp(2rem,5vw,3.1rem);margin:4px 0 6px}
+.receivable-summary p:last-child{color:rgba(255,255,255,.72);margin:0}
+.receivable-summary>svg{color:var(--gold);flex:0 0 auto}
+.receivable-note{
+  background:#f7f4ea;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:16px;
+  display:grid;
+  gap:4px;
+}
+.receivable-note span,.receivable-note small{color:var(--muted)}
+.receivable-note strong{font-size:1.5rem;color:var(--green)}
+@media(max-width:720px){
+  .receivable-summary{padding:20px;border-radius:20px}
+}
+
+/* Mobile app behavior */
+html {
+  -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;
+}
+
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+
+body {
+  overscroll-behavior-y: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  touch-action: manipulation;
+}
+
+@media (display-mode: standalone) {
+  body {
+    min-height: 100dvh;
+  }
+
+  .topbar {
+    padding-top: max(16px, env(safe-area-inset-top));
+  }
+
+  .bottom-nav {
+    padding-bottom: max(8px, env(safe-area-inset-bottom));
+  }
+}

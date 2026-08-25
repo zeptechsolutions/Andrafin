@@ -1,5 +1,0 @@
-const Notification=require('../models/Notification');const asyncHandler=require('../utils/asyncHandler');
-const list=asyncHandler(async(req,res)=>{const notifications=await Notification.find({user:req.user._id}).sort({createdAt:-1}).limit(100);res.json({success:true,unread:notifications.filter(n=>!n.read).length,notifications});});
-const markRead=asyncHandler(async(req,res)=>{const n=await Notification.findOneAndUpdate({_id:req.params.id,user:req.user._id},{read:true},{new:true});if(!n){res.status(404);throw new Error('Notificación no encontrada');}res.json({success:true,notification:n});});
-const markAll=asyncHandler(async(req,res)=>{await Notification.updateMany({user:req.user._id,read:false},{read:true});res.json({success:true,message:'Notificaciones marcadas como leídas'});});
-const remove=asyncHandler(async(req,res)=>{const n=await Notification.findOneAndDelete({_id:req.params.id,user:req.user._id});if(!n){res.status(404);throw new Error('Notificación no encontrada');}res.json({success:true,message:'Notificación eliminada'});});module.exports={list,markRead,markAll,remove};

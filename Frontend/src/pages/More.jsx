@@ -1,7 +1,8 @@
 import {Link} from 'react-router-dom';
-import {WalletCards,Target,Tags,Bell,UserRound,ChevronRight} from 'lucide-react';
+import {WalletCards,Target,Tags,Bell,UserRound,ChevronRight,WalletMinimal} from 'lucide-react';
 
 const links=[
+  ['/por-cobrar','Por cobrar','Dinero pendiente que esperas recibir',WalletMinimal],
   ['/cuentas','Cuentas','Administra efectivo, bancos y ahorros',WalletCards],
   ['/categorias','Categorías','Organiza ingresos y gastos',Tags],
   ['/planificacion','Planificación','Presupuestos, metas y recurrentes',Target],
