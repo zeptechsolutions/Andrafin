@@ -1,0 +1,10 @@
+const express=require('express');const cors=require('cors');
+const {notFound,errorHandler}=require('./middleware/errorMiddleware');
+const app=express();
+const allowed=(process.env.CLIENT_URL||'http://localhost:5173').split(',').map(x=>x.trim());
+app.use(cors({origin:(origin,cb)=>{if(!origin||allowed.includes(origin))return cb(null,true);cb(new Error('Origen no permitido por CORS'));},credentials:true}));
+app.use(express.json({limit:'1mb'}));app.use(express.urlencoded({extended:true}));
+app.get('/',(req,res)=>res.json({success:true,message:'AndraFin API funcionando',version:'1.0.0'}));
+app.get('/api/health',(req,res)=>res.json({success:true,status:'ok',timestamp:new Date().toISOString()}));
+app.use('/api/auth',require('./routes/authRoutes'));app.use('/api/accounts',require('./routes/accountRoutes'));app.use('/api/categories',require('./routes/categoryRoutes'));app.use('/api/transactions',require('./routes/transactionRoutes'));app.use('/api/debts',require('./routes/debtRoutes'));app.use('/api/loans',require('./routes/loanRoutes'));app.use('/api/budgets',require('./routes/budgetRoutes'));app.use('/api/goals',require('./routes/goalRoutes'));app.use('/api/recurring',require('./routes/recurringRoutes'));app.use('/api/notifications',require('./routes/notificationRoutes'));app.use('/api/dashboard',require('./routes/dashboardRoutes'));
+app.use(notFound);app.use(errorHandler);module.exports=app;

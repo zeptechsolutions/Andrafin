@@ -1,0 +1,1 @@
+export default function EmptyState({title='Aún no hay registros',text='Cuando agregues información aparecerá aquí.'}){return <div className="empty"><div className="empty-mark">A</div><h3>{title}</h3><p>{text}</p></div>}

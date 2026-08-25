@@ -1,0 +1,2 @@
+import {CheckCircle2,AlertCircle} from 'lucide-react';
+export default function Toast({toast}){if(!toast)return null;return <div className={`toast ${toast.type==='error'?'error':''}`}>{toast.type==='error'?<AlertCircle size={18}/>:<CheckCircle2 size={18}/>}<span>{toast.message}</span></div>}
